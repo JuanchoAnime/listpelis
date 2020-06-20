@@ -1,0 +1,33 @@
+<ActionBar title="My Collection Movie" ios.position="center" >
+</ActionBar>
+
+<GridLayout>
+    <ListView class="list-group"
+        [items]="items"
+        height="100%"
+        backgroundColor="#3f4577">
+        <ng-template let-item="item" let-i="index">
+            <GridLayout>
+                <GridLayout margin="5" borderRadius="10" height="250">
+                    <Image [src]="item.imageSrc" height="100%" width="100%"
+                        stretch="aspectFill" borderRadius="10"></Image>
+                    <Label height="100%" width="100%" backgroundColor="black"
+                        opacity="0.2">
+                    </Label>
+                    <GridLayout rows="auto, auto, *, auto, auto, auto"
+                        columns="auto, *, auto" padding="10" borderRadius="10">
+                        <Label row="1" col="0" horizontalAlignment="center" class="card--rating" [text]="item.rating"></Label>
+                        <Label row="3" col="0" colSpan="3" class="card--title"
+                            [text]="item.title"></Label>
+                        <StackLayout row="4" col="0" colSpan="3"
+                            orientation="horizontal" marginTop="5">
+                            <Label padding="5 15" marginRight="2.5" color="#fff"
+                                [text]="desc" *ngFor="let desc of item.descriptions" class="round-corners"></Label>
+                        </StackLayout>
+                        <Label row="5" col="0" colSpan="3" class="card--duration" [text]="item.duration" marginTop="5"></Label>
+                    </GridLayout>
+                </GridLayout>
+            </GridLayout>
+        </ng-template>
+    </ListView>
+</GridLayout>
